@@ -1,7 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const views = path.join(__dirname, "src/assets");
+
 module.exports = {
   mode: "development",
   entry: fs.readdirSync(views).reduce(function (entries, dir) {
@@ -33,6 +35,11 @@ module.exports = {
   },
   resolve: {},
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve('./public/index.html'),
+      favicon: path.resolve('./public/favicon.ico'),
+      title: 'express-vue-template',
+    }),
   ],
 };
