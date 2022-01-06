@@ -1,11 +1,11 @@
 <template>
-  <div class="home">
-    Home
+  <div class="app">
+    <router-view></router-view>
   </div>
 </template>
 <script>
 export default {
-  name: "Home"
+  name: "App"
 }
 </script>
 <style lang="less" scoped>
